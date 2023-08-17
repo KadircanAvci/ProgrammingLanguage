@@ -1,0 +1,5 @@
+package kodlama.io.Devs.demo.entites.concretes;
+
+public class User {
+
+}

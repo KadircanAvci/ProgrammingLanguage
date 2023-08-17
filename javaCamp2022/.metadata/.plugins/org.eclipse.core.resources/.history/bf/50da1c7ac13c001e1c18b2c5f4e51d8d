@@ -1,0 +1,62 @@
+package kodlama.io.Devs.demo.business.concretes;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
+import kodlama.io.Devs.demo.business.abstracts.UserService;
+import kodlama.io.Devs.demo.business.requests.CreateUserRequest;
+import kodlama.io.Devs.demo.business.requests.UpdateUserRequest;
+import kodlama.io.Devs.demo.business.responses.GetAllUsersResponse;
+import kodlama.io.Devs.demo.core.utilities.mappers.ModelMapperService;
+import kodlama.io.Devs.demo.dataAccess.abstracts.UserRepository;
+import kodlama.io.Devs.demo.entites.concretes.User;
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class UserManager implements UserService {
+
+	private UserRepository userRepository;
+	private ModelMapperService modelMapperService;
+	
+	@Override
+	public void add(CreateUserRequest createUserRequest) {
+		
+		User user = this.modelMapperService.forRequest()
+				.map(createUserRequest, User.class);
+		
+		this.userRepository.save(user);
+		
+	}
+
+	@Override
+	public List<GetAllUsersResponse> getAll() {
+		
+		List<User> users = this.userRepository.findAll();
+		
+		List<GetAllUsersResponse> userResponses = users.stream()
+				.map(user->this.modelMapperService.forResponse()
+				.map(user,GetAllUsersResponse.class)).collect(Collectors.toList());
+		
+		return userResponses;
+	}
+
+	@Override
+	public void update(int id,UpdateUserRequest updateUserRequest) {
+		
+		User user = this.modelMapperService.forRequest()
+				.map(updateUserRequest, User.class);
+		this.userRepository.save(user);
+		
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		this.userRepository.deleteById(id);
+		
+	}
+
+}

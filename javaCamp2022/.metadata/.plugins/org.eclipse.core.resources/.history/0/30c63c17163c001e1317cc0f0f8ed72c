@@ -1,0 +1,5 @@
+package kodlama.io.Devs.demo.dataAccess.abstracts;
+
+public interface UserRepository {
+
+}

@@ -1,0 +1,6 @@
+package kodlama.io.Devs.demo.business.responses;
+
+public class GetByIdUserResponse {
+	private int id;
+	private int email;
+}

@@ -1,0 +1,5 @@
+package kodlama.io.Devs.demo.business.abstracts;
+
+public interface UserService {
+
+}

@@ -1,0 +1,15 @@
+package kodlama.io.Devs.demo.business.abstracts;
+
+import java.util.List;
+
+import kodlama.io.Devs.demo.business.requests.CreateUserRequest;
+import kodlama.io.Devs.demo.business.requests.UpdateUserRequest;
+import kodlama.io.Devs.demo.business.responses.GetAllUsersResponse;
+
+public interface UserService {
+	
+	List<GetAllUsersResponse> getAll();
+	void add(CreateUserRequest createUserRequest);
+	void update(UpdateUserRequest updateUserRequest);
+	
+}

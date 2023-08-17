@@ -1,0 +1,24 @@
+package kodlama.io.Devs.demo.business.concretes;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import kodlama.io.Devs.demo.business.abstracts.UserService;
+import kodlama.io.Devs.demo.business.requests.CreateUserRequest;
+import kodlama.io.Devs.demo.dataAccess.abstracts.UserRepository;
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class UserManager implements UserService {
+
+	private UserRepository userRepository;
+	private ModelMapper modelMapper;
+	
+	@Override
+	public void add(CreateUserRequest createUserRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

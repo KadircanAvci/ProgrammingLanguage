@@ -1,0 +1,7 @@
+package kodlama.io.Devs.demo.core.utilities.exceptions;
+
+import java.util.Map;
+
+public class ValidationProblemDetails extends ProblemDetails {
+	private Map<String, String> validationErrors;
+}

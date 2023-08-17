@@ -1,0 +1,9 @@
+package kodlama.io.Devs.demo.business.abstracts;
+
+import kodlama.io.Devs.demo.business.requests.CreateUserRequest;
+
+public interface UserService {
+	
+	void add(CreateUserRequest createUserRequest);
+	
+}
